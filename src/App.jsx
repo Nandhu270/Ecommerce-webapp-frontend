@@ -1,18 +1,27 @@
-import './App.css'
-
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Signup from './components/signup'
-import Login from './components/Login'
+import "./App.css";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Signup from "./components/signup";
+import Login from "./components/Login";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+import { ThemeProvider } from "./hooks/context";
 
 function App() {
+  const location = useLocation();
+  const hideNavbar = ["/login", "/signup"];
+  const showNavbar = !hideNavbar.includes(location.pathname);
   return (
-    <BrowserRouter>
+    <>
+      {showNavbar && <Navbar />}
+      <div className={`${showNavbar ? "pt-16 sm:pt-20" : ""}`}>
         <Routes>
-          <Route path='/signup' element={<Signup />}/>
-          <Route path='/login' element={<Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
-    </BrowserRouter>
-  )
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;
