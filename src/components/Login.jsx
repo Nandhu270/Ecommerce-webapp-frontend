@@ -3,6 +3,8 @@ import { HiOutlineMail } from "react-icons/hi";
 import { IoKeyOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { LuShoppingBag } from "react-icons/lu";
+import { FcGoogle } from "react-icons/fc";
+import LoginImage from '../assets/LoginImage.png';
 
 function Login() {
   const [data, setData] = useState({
@@ -31,22 +33,25 @@ function Login() {
     <div className="grid grid-cols-1 sm:grid-cols-[45%_55%] w-screen h-screen">
       <div className="hidden sm:block h-screen">
         <img
-          src="https://images.pexels.com/photos/6214387/pexels-photo-6214387.jpeg"
+          src={LoginImage}
           className="w-full h-full object-cover"
           alt="Background Image"
-          style={{borderTopRightRadius:'15%', borderBottomRightRadius:'15%'}}
+          style={{
+            borderTopRightRadius: "15%",
+            borderBottomRightRadius: "15%",
+          }}
         />
       </div>
       <div className="flex items-center justify-center min-h-screen order-1 sm:order-2">
         <div className="flex items-start justify-center flex-col">
-          <h1 className="absolute top-[18%] flex items-center gap-3 text-5xl text-secondary">
+          <h1 className="absolute top-[15%] flex items-center gap-3 text-5xl text-secondary">
             <span className="bg-secondary p-3 rounded-full text-white flex items-center justify-center">
               <LuShoppingBag className="w-8 h-8" />
             </span>
             Luxe Store
           </h1>
           <div className="flex items-end justify-end">
-          <h1 className="font-semibold text-3xl">Let's Get Connected</h1>
+            <h1 className="font-semibold text-3xl">Let's Get Connected</h1>
           </div>
           <form className="mt-5" onSubmit={handleSubmit}>
             <div>
@@ -93,7 +98,34 @@ function Login() {
                 Login
               </button>
             </div>
+            <div className="flex items-center justify-center mt-1">
+              <p>
+                Create an Account?{" "}
+                <span
+                  className="underline"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => navigate("/signup")}
+                >
+                  {" "}
+                  Register{" "}
+                </span>
+              </p>
+            </div>
           </form>
+          <div className="mt-4 flex items-center justify-center w-full">
+            <hr className="flex-grow border border-gray-500" />
+            <h5 className="mx-3 mb-0">or</h5>
+            <hr className="flex-grow border border-gray-500" />
+          </div>
+          <div className="mt-4 w-full flex justify-center">
+            <button
+              type="button"
+              className="flex items-center justify-center gap-3 w-80 py-2 px-4 border border-gray-300 rounded-lg bg-white text-gray-700 shadow-sm hover:bg-gray-100 transition cursor-pointer"
+            >
+              <FcGoogle className="w-6 h-6" />
+              <span className="font-medium">Login with Google</span>
+            </button>
+          </div>
         </div>
       </div>
       <dialog
