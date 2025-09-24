@@ -3,7 +3,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { IoKeyOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { LuShoppingBag } from "react-icons/lu";
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from "react-i6cons/fc";
 import LoginImage from '../assets/LoginImage.png';
 
 function Login() {
