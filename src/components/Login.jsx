@@ -3,8 +3,9 @@ import { HiOutlineMail } from "react-icons/hi";
 import { IoKeyOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { LuShoppingBag } from "react-icons/lu";
-import { FcGoogle } from "react-i6cons/fc";
+import { FcGoogle } from "react-icons/fc";
 import LoginImage from '../assets/LoginImage.png';
+import axios from "axios";
 
 function Login() {
   const [data, setData] = useState({
@@ -18,10 +19,17 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     setloading(true);
-    modalref.current.showModal();
+    try{
+      const res = await axios.post('http://localhost:5000/api/login',data);
+      modalref.current.showModal();
+    }catch(err){
+      console.log(err.message);
+    }finally{
+      setloading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -140,7 +148,7 @@ function Login() {
             <form method="dialog">
               <button
                 className="btn btn-soft btn-secondary"
-                onClick={() => navigate("")}
+                onClick={() => navigate("/")}
               >
                 Continue
               </button>

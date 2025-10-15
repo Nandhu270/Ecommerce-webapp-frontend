@@ -4,7 +4,9 @@ import Signup from "./components/signup";
 import Login from "./components/Login";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import { ThemeProvider } from "./hooks/context";
+import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
+import Wishlist from "./pages/Wishlist";
 
 function App() {
   const location = useLocation();
@@ -13,13 +15,14 @@ function App() {
   return (
     <>
       {showNavbar && <Navbar />}
-      <div className={`${showNavbar ? "pt-16 sm:pt-20" : ""}`}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path='/shop' element={<Shop />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+      </Routes>
     </>
   );
 }
