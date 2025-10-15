@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React, { useEffect, useRef, useState } from "react";
 import { LuShoppingBag } from "react-icons/lu";
 import { FaRegHeart } from "react-icons/fa";
@@ -35,7 +34,7 @@ function Navbar() {
 
   return (
     <nav
-      className={`w-full fixed top-0 left-0 z-50 transition-colors duration-300 ${
+      className={`w-full top-0 left-0 z-50 transition-colors duration-300 ${
         theme === "light" ? "text-black shadow-md" : "text-white shadow-md"
       }`}
     >
@@ -60,12 +59,14 @@ function Navbar() {
                 path: "/cart",
                 icon: <HiOutlineShoppingCart size={20} />,
                 badge: true,
+                v:"3"
               },
               {
                 name: "Wishlist",
                 path: "/wishlist",
                 icon: <FaRegHeart size={18} />,
                 badge: true,
+                v:"3"
               },
             ].map((item) => (
               <Link
@@ -92,7 +93,7 @@ function Navbar() {
                   {item.name}
                   {item.badge && (
                     <div className="badge badge-sm absolute bg-error -top-3 -right-6">
-                      0
+                      {item.v}
                     </div>
                   )}
                 </div>
@@ -117,6 +118,12 @@ function Navbar() {
                     className="px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-50 rounded-2xl cursor-pointer"
                   >
                     Profile
+                  </li>
+                  <li
+                    onClick={() => setShow(false)}
+                    className="px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-50 rounded-2xl cursor-pointer"
+                  >
+                    Orders
                   </li>
                   <li
                     onClick={() => setShow(false)}

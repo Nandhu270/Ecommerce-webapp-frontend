@@ -8,6 +8,7 @@ import { TbMapPinCode } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import { LuShoppingBag } from "react-icons/lu";
 import LoginImage from '../assets/LoginImage.png';
+import axios from "axios";
 
 export default function Signup() {
   const [data, setData] = useState({
@@ -34,10 +35,17 @@ export default function Signup() {
     setData({ ...data, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     setloading(true);
-    modalref.current.showModal();
+    try{
+      const res = await axios.post('http://localhost:5000/api/signup',data);
+      modalref.current.showModal();
+    }catch(err){
+      console.log(err.message);
+    }finally{
+      setloading(false);
+    }
   };
 
   return (
