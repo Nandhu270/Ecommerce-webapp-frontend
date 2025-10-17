@@ -1,10 +1,11 @@
 import React from "react";
+import CategoriesCard from "../components/CategoriesCard";
 
 function Categories() {
   return (
-    <div className="w-full min-h-screen flex flex-col items-center gap-5 justify-center px-6">
-      <h1 className="text-5xl font-bold">Shop by Category</h1>
-      <h4 className="text-xl text-gray-500">Discover Some new Collections</h4>
+    <div className="w-full min-h-screen flex flex-col items-center gap-5 justify-center px-6 py-10">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">Shop by Category</h1>
+      <h4 className="text-base sm:text-lg md:text-xl text-gray-500 text-center">Discover Some new Collections</h4>
       <div className="max-w-6xl gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {[
           {
@@ -37,23 +38,8 @@ function Categories() {
             name: "Sports",
             desc: "Equipment for active lifestyle",
           },
-        ].map((item, idx) => (
-          <div
-            key={idx}
-            className="relative rounded-xl overflow-hidden group"
-          >
-            <img
-              src={item.url}
-              alt={item.name}
-              className="w-full h-60 object-cover transform group-hover:scale-110 transition duration-500"
-            />
-            <div className="absolute inset-0 bg-black/40 flex items-end p-4">
-              <div className="text-white">
-                <h2 className="text-xl font-bold">{item.name}</h2>
-                <p className="text-sm">{item.desc}</p>
-              </div>
-            </div>
-          </div>
+        ].map((data,index)=>(
+          <CategoriesCard key={index} data={data}/>
         ))}
       </div>
     </div>
