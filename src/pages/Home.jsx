@@ -6,6 +6,7 @@ import Categories from "./Categories";
 import HomeImage from '../assets/HomeImage.png';
 import Feature from "./Feature";
 import NewArrival from "./NewArrival";
+import Subscribe from "./Subscribe";
 function Home() {
   const navigate = useNavigate();
   return (
@@ -59,6 +60,7 @@ function Home() {
       <Categories />
       <Feature />
       <NewArrival />
+      <Subscribe />
     </>
   );
 }
