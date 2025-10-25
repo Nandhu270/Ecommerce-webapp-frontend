@@ -5,9 +5,9 @@ import { FaArrowRight } from "react-icons/fa";
 import Categories from "./Categories";
 import HomeImage from '../assets/HomeImage.png';
 import Feature from "./Feature";
+import NewArrival from "./NewArrival";
 function Home() {
   const navigate = useNavigate();
-
   return (
     <>
       <div
@@ -58,6 +58,7 @@ function Home() {
       </div>
       <Categories />
       <Feature />
+      <NewArrival />
     </>
   );
 }

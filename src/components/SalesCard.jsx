@@ -3,58 +3,58 @@ import { Heart, ShoppingCart, Eye } from "lucide-react";
 
 export default function SalesCard({ data }) {
   return (
-    <div className="group cursor-pointer relative w-full rounded-2xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-lg flex flex-col">
-      <div className="relative w-full h-56 flex-shrink-0 overflow-hidden">
+    <div className="group cursor-pointer relative w-full rounded-xl shadow-sm overflow-hidden transition-transform duration-200 hover:scale-105 hover:shadow-md flex flex-col">
+      <div className="relative w-full h-40 sm:h-44 md:h-48 flex-shrink-0 overflow-hidden">
         <img
           src={data.image}
           alt={data.title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
 
         {data.isFeat && (
-          <div className="z-50 badge badge-secondary absolute top-3 left-2">
+          <div className="z-50 badge badge-secondary absolute top-2 left-2 text-xs sm:text-sm">
             Feature
           </div>
         )}
 
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-
-        <div className="absolute top-3 right-3 flex flex-col items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
-            <Heart className="w-5 h-5 text-gray-700" />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+        <div
+          className="absolute top-2 right-2 flex flex-col items-center gap-2
+                opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+        >
+          <button className="bg-white p-1.5 rounded-full shadow-sm hover:bg-gray-100 cursor-pointer">
+            <Heart className="w-4 h-4 text-gray-700" />
           </button>
-          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
-            <Eye className="w-5 h-5 text-gray-700" />
+          <button className="bg-white p-1.5 rounded-full shadow-sm hover:bg-gray-100 cursor-pointer">
+            <Eye className="w-4 h-4 text-gray-700" />
           </button>
         </div>
 
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <button className="bg-white p-2 flex items-center text-gray-700 gap-2 rounded-full shadow-md hover:bg-gray-200">
-            <ShoppingCart className="w-5 h-5 text-gray-700" />
-            Add to Cart
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <button className="bg-white px-3 sm:px-4 py-2 flex items-center text-gray-700 gap-1 sm:gap-2 rounded-full shadow-sm hover:bg-gray-200 text-xs sm:text-sm cursor-pointer">
+            <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
+            Add
           </button>
         </div>
       </div>
 
-      <div className="p-4 flex flex-col gap-2 flex-1">
-        <h4 className="text-lg font-semibold break-words line-clamp-2">
+      <div className="p-3 sm:p-4 flex flex-col gap-1 sm:gap-2 flex-1">
+        <h4 className="text-sm sm:text-base font-semibold line-clamp-2">
           {data.title}
         </h4>
-        <p className="text-sm flex-1">{data.desc}</p>
+        <p className="text-xs sm:text-sm flex-1 line-clamp-2">{data.desc}</p>
 
-        <div className="mt-2 flex items-center justify-between">
-          <div>
-            <span className="text-lg font-bold">
-              {data.price}
-            </span>
+        <div className="mt-1 flex items-center justify-between">
+          <div className="text-sm sm:text-base font-bold">
+            {data.price}
             {data.islow && (
-              <span className="ml-2 text-sm line-through">
+              <span className="ml-1 sm:ml-2 text-xs sm:text-sm line-through font-normal">
                 {data.islow}
               </span>
             )}
           </div>
 
-          <button className="bg-secondary text-white font-medium px-4 py-1.5 rounded-lg">
+          <button className="bg-secondary text-white text-xs sm:text-sm font-medium px-3 py-1 rounded-md cursor-pointer"> 
             Order
           </button>
         </div>
