@@ -112,7 +112,7 @@ export default function SalesCard({ data }) {
 
                 <button className="bg-secondary text-white text-xs sm:text-sm font-medium px-4 py-2 rounded-md flex items-center gap-2 hover:opacity-90 transition cursor-pointer">
                   <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
-                  Add
+                  Add to Cart
                 </button>
               </div>
             </div>

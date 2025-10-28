@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
+import Footer from "./components/Footer";
 
 function App() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
+      {showNavbar && <Footer />}
     </>
   );
 }
